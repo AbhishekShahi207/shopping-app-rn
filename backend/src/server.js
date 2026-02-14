@@ -10,12 +10,12 @@ app.get("/api/health",(req,res)=>{
 })
 
 //deployement 
-if(ENV.NODE_ENV === "production"){
-    app.use(express.static(path.join(__dirname,"../admin/dist")))
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../admin/dist")));
 
-    app.get("/{*any}",(req,res)=>{
-        res.sendFile(path.join(__dirname,"../admin","dist","index.html"))
-    })
+  app.get("/{*any}", (req, res) => {
+    res.sendFile(path.join(__dirname, "../admin", "dist", "index.html"));
+  });
 }
 
 app.listen(ENV.PORT,()=>{
