@@ -18,6 +18,7 @@ app.use("/api/inngest",serve({client:inngest,functions}))
 
 
 
+
 app.get("/api/health",(req,res)=>{
     res.json({message:"App is rung "})
 })
